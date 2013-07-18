@@ -1,6 +1,6 @@
 {
-  "name": "app-name",
-  "version": "0.0.1",
+  "name": "bkmngr",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "locomotive": "0.3.x",
