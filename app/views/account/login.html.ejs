@@ -6,8 +6,8 @@
 			<div class="span4 ">
 				<div class="well loginwell">
 					<div id="logo">bkmngr</div>
-					
-					<form id="signupform">
+					<p class="text-warning"><% if(message){%> <%=message %>  <%}%></p>
+					<form id="signupform" action="/signup" method="post">
 						<input type="text" name="username" placeholder="Username">
 						<input type="email" name="email" placeholder="E-Mail">
 						<input type="password" name="password" placeholder="Password">
@@ -15,16 +15,16 @@
 							<input type="checkbox" value="" name="terms">
 							I agree with the <a href="#">Terms and Conditions</a>.
 						</label>
-						<input type="submit" value="Sign up" class="btn btn-large btn-block">
+						<input type="submit" value="Signup" class="btn btn-large btn-block">
 						<div class="clearfix"></div>
 						<div class="pull-right">or <a href="#" id="signinswitch">Sign in</a></div>
 						<div class="clearfix"></div>
 					</form>
 
-					<form id="signinform">
+					<form id="signinform" action="/signin" method="post">
 						<input type="text" name="username" placeholder="Username">
 						<input type="password" name="password" placeholder="Password">
-						<input type="submit" value="Sign in" class="btn btn-large btn-block">
+						<input type="submit" value="Signin" class="btn btn-large btn-block">
 						<div class="clearfix"></div>
 						<div class="pull-right">or <a href="#" id="signupswitch">Sign up</a></div>
 						<div class="clearfix"></div>

@@ -44,6 +44,9 @@ nav > ul > li{
 	width: 95%;
 	margin: 10px 20px 10px 0px;
 }
-form#signinform{
+.loginwell > p{
+	padding-top: 10px;
+}
+form#signupform{
 	display: none;
 }
