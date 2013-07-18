@@ -7,9 +7,12 @@ var PagesController = new Controller();
 PagesController.main = function() {
 	if (!this.req.isAuthenticated()) {
 		this.redirect('/login');
+		return;
 	}
-	this.title = 'bkmngr - Book Management';
+	this.user = this.req.user;
+	this.title = 'bkmngr - Overview';
 	this.render();
-}
+};
+
 
 module.exports = PagesController;

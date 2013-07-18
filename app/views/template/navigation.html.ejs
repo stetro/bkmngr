@@ -1,8 +1,9 @@
 <nav>
 	<ul>
-		<li><a href="/">Übersicht</a></li>
-		<li><a href="/account">Einstellungen</a></li>
-		<li><a href="/about">Über</a></li>
+		<li><img src="http://gravatar.com/avatar/<%= user.gravatar%>?s=16" alt="Gravatar">&nbsp;<%= user.username %></li>
+		<li><a href="/">Overview</a></li>
+		<li><a href="/account">Settings</a></li>
+		<li><a href="/about">About</a></li>
 		<li><a href="/logout">Logout</a></li>
 	</ul>
 </nav>

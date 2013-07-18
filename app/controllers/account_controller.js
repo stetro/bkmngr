@@ -1,5 +1,6 @@
 var locomotive = require('locomotive'),
 	passport = require('passport'),
+	crypto = require('crypto'),
 	Controller = locomotive.Controller;
 
 var Account = require('../models/account');
@@ -31,7 +32,6 @@ AccountController.show = function() {
 };
 
 AccountController.signin = function() {
-	var self = this;
 	passport.authenticate('local', {
 			successRedirect: '/',
 			failureRedirect: '/login'
@@ -40,10 +40,14 @@ AccountController.signin = function() {
 }
 AccountController.signup = function() {
 	var account = new Account();
-
+	
 	account.email = this.param('email');
 	account.password = this.param('password');
 	account.username = this.param('username');
+
+	var md5sum = crypto.createHash('md5');
+	md5sum.update(this.param('email'));
+	account.gravatar = md5sum.digest('hex');
 
 	var self = this;
 	this.title = 'bkmngr - Signup';

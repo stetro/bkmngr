@@ -5,12 +5,10 @@ var Email = mongoose.SchemaTypes.Email;
 var bcrypt = require('bcrypt');
 
 var AccountSchema = new Schema({
-
 	email: {
 		type: Email,
-		required:true
+		required: true
 	},
-
 	salt: {
 		type: String,
 		required: true
@@ -19,10 +17,12 @@ var AccountSchema = new Schema({
 		type: String,
 		required: true
 	},
-
 	username: {
 		type: String,
 		unique: true
+	},
+	gravatar: {
+		type: String
 	}
 });
 
