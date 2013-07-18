@@ -4,8 +4,11 @@ var locomotive = require('locomotive')
 var PagesController = new Controller();
 
 PagesController.main = function() {
-  this.title = 'Locomotive'
-  this.render();
+	this.title = 'bkmngr - Book Management'
+	this.render();
 }
-
+PagesController.signin = function() {
+	this.title = 'Sign In into bkmngr - Book Management'
+	this.render();
+}
 module.exports = PagesController;

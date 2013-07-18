@@ -1,11 +1,19 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome aboard! Visit <a href="http://locomotivejs.org/">locomotivejs.org</a> for details.</p>
-  </body>
+<% include ../template/header.html.ejs %>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="span5"><div id="logo">bkmngr</div></div>
+			<div class="span7">
+				<% include ../template/navigation.html.ejs %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span5">
+				<h1><%= title %></h1>
+			<p>Welcome aboard! Visit <a href="http://locomotivejs.org/">locomotivejs.org</a> for details.</p>
+			</div>
+		</div>
+	</div>
+	<div>http://www.flickr.com/photos/gpoo/ Germán Póo-Caamaño</div>
+</body>
 </html>

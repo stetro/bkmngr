@@ -1,8 +1,49 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body{
+	background: #f9f9f9;
+}
+body.signin{
+	background: url(/images/signin_background.jpg) center 0px no-repeat #AAA;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+#logo{
+	background-image: url(/images/logo_head.png);
+	height: 32px;
+	background-repeat: no-repeat;
+	padding-left: 100px;
+	font-size: 3em;
+	padding-top: 68px;
+	color: #03376d;
+}
+/*********** NAVIGATION */
+nav{
+	float: right;
+}
+nav > ul{
+	padding: 0;
+	margin: 10px;
 }
 
-a {
-  color: #00B7FF;
+nav > ul > li{
+	padding: 10px;
+	margin: 0;
+	float: left;
+	list-style: none;
+}
+/*********** LOGIN */
+.loginwell{
+	margin-top: 10px;
+	padding: 30px;
+	background-color: #fff;
+}
+.loginwell input[type=text],
+.loginwell input[type=password],
+.loginwell input[type=email]{
+	width: 95%;
+	margin: 10px 20px 10px 0px;
+}
+form#signinform{
+	display: none;
 }
