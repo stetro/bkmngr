@@ -9,4 +9,5 @@ module.exports = function routes() {
 	this.get('/account', 'account#show');
 
 	this.resources('books');
+	this.resources('tags');
 }

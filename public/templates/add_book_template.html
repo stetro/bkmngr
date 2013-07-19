@@ -5,7 +5,7 @@
 	<input ng-model="newBook.title" type="text" class="input-large" placeholder="Title" required>
 	<input ng-model="newBook.author" type="text" class="input-large" placeholder="Author" required>
 	<input ng-model="newBook.isbn" type="text" class="input-medium" placeholder="ISBN">
-	<select ng-model="newBook.tags" multiple title="Tags ..." ng-options="tag for tag in tags" data-style="btn-primary" class="input-large" bs-select></select>
+	<select ng-model="newBook.tags" multiple title="Tags ..." ng-options="tag.title for tag in tags" data-style="btn-primary" class="input-large" bs-select></select>
 	
 	<input ng-model="newBook.thumbnail" type="text" class="input-large" placeholder="Thumbnail URL" required>
 	<input ng-model="newBook.url" type="text" class="input-large" placeholder="Book URL" required>

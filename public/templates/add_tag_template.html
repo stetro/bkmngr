@@ -1,8 +1,9 @@
 <form name="popoverForm">
 	<p ng-bind-html-unsafe="popover.content"></p>
-	<input type="text" ng-model="newTag" class="input-large" placeholder="Tagname" required>
+	<p class="text-warning">{{newTagError}}</p>
+	<input type="text" ng-model="newTag.title" class="input-large" placeholder="Tagname" required>
 	<div class="form-actions">
 		<button type="button" class="btn" ng-click="hide()">Close</button>
-		<button class="btn btn-primary" ng-click="addNewTag(newTag);" >Save book</button>
+		<button class="btn btn-primary" ng-click="addNewTag(newTag.title);" >Save tag</button>
 	</div>
 </form>

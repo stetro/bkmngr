@@ -2,10 +2,12 @@ var bkmngr = angular.module('bkmngr', ['ngResource', '$strap.directives']);
 
 bkmngr.controller('ListController', function($scope, $resource, $http) {
 	var Book = $resource('/books/:id');
+	var Tag = $resource('/tags/');
 	$scope.books = Book.query();
+	$scope.tags = Tag.query();
 	$scope.newBook = new Book();
-	$scope.newTag = "";
-	$scope.tags = ["Programming", "UX"];
+	$scope.newTag = new Tag();
+
 
 
 	$scope.typeaheadForBooks = function(query) {
@@ -32,10 +34,16 @@ bkmngr.controller('ListController', function($scope, $resource, $http) {
 	};
 
 	$scope.addNewTag = function(tag) {
-		if (tag.length == 0 || $scope.tags.indexOf(tag) >= 0) return;
-		$scope.tags.push($scope.tags.indexOf(tag));
-		$scope.newTag = "";
-		$(".popover").popover('hide');
+		if ($scope.newTag.title.length == 0 || $scope.tags.indexOf($scope.newTag.title) >= 0) {
+			return;
+		}
+		$scope.newTag.$save({}, function(tag) {
+			$scope.tags.push($scope.newTag);
+			$scope.newTag = new Tag();
+			$(".popover").popover('hide');
+		}, function(err) {
+			$scope.newTagError = err.data;
+		});
 	};
 
 	// $scope.typeaheadForBookAPI = function(query, callback) {
