@@ -1,9 +1,27 @@
 <nav>
 	<ul>
-		<li><img src="http://gravatar.com/avatar/<%= user.gravatar%>?s=16" alt="Gravatar">&nbsp;<%= user.username %></li>
-		<li><a href="/">Overview</a></li>
-		<li><a href="/account">Settings</a></li>
-		<li><a href="/about">About</a></li>
-		<li><a href="/logout">Logout</a></li>
+		<li>
+			<div class="btn-group pull-right">
+				<div class="btn" bs-popover="'/add_book_template.html'" data-unique="1" >
+					<i class="icon-plus"></i> add book
+				</div>
+				<div class="btn"><img src="http://gravatar.com/avatar/<%= user.gravatar%>?s=16" alt="Gravatar">&nbsp;
+					<%= user.username %> 
+				</div>
+				<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/account"><i class="icon-pencil"></i> Edit</a></li>
+					<li><a href="/signout"><i class="icon-signout"></i> Signout</a></li>
+				</ul>
+			</div>
+		</li>
+		<li>
+			<form action="#" class="form-search">
+				<div class="input-append">
+					<input type="text" class="span2 search-query" bs-typeahead="typeaheadForBooks" ng-model="search">
+					<button type="submit" class="btn"><i class="icon-search"></i> Search</button>
+				</div>
+			</form>
+		</li>
 	</ul>
 </nav>

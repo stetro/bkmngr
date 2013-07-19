@@ -1,16 +1,14 @@
 <% include ../template/header.html.ejs %>
 <% include ../template/main_wrap.html.ejs %>
-
-	<div ng-controller="ListController">
-		<div ng-repeat="book in books" class="span3 well book">
-			
+	<div>
+		<div ng-repeat="book in books | filter:search" class="span3 well book">
 			<div>
 				{{book.title}}<br/>
 				{{book.author}}<br/>
-				<a href="{{book.url}}">Download</a>
+				<a href="{{book.url}}" target="_blank">Download</a>
 			</div>
-			<img src="{{book.thumbnail}}" alt="">
+			<img src="{{book.thumbnail}}"  alt="Thumbnail of {{book.title}}">
+			<i class="icon-star-empty pull-right"></i>
 		</div>
 	</div>
-
 <% include ../template/footer.html.ejs %>

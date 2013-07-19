@@ -13,6 +13,7 @@ body.signin{
 	height: 32px;
 	background-repeat: no-repeat;
 	padding-left: 100px;
+	margin-bottom: 30px;
 	font-size: 3em;
 	padding-top: 68px;
 	color: #03376d;
@@ -20,17 +21,23 @@ body.signin{
 /*********** NAVIGATION */
 nav{
 	float: right;
+	margin: 0;
+	padding: 0;
 }
 nav > ul{
 	padding: 0;
-	margin: 60px 0px 0px 0px;
+	margin: 10px 0px 0px 0px;
 }
 
 nav > ul > li{
-	padding: 10px;
+	padding: 10px 0 10px 20px;
 	margin: 0;
-	float: left;
+	float: right;
 	list-style: none;
+}
+nav > ul > li.btn{
+	margin-top: 5px;
+	margin-right: 10px;
 }
 /*********** LOGIN */
 .loginwell{
@@ -73,7 +80,7 @@ footer > .credits{
 }
 .book > div{
 	z-index: 9999;
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(0,0,0,0.8);
 	position: absolute;
 	margin-right: -19px;
 	margin-left: -19px;
@@ -82,4 +89,13 @@ footer > .credits{
 	color:#EEEEEE;
 	bottom: 0px;
 	height:80px;
+}
+.book > i.icon-star-empty:hover:before {
+	content: "\f005";
+}
+.book > i.icon-star, .book > i.icon-star-empty{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	font-size: 18px;
 }
