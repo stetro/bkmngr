@@ -22,7 +22,6 @@ module.exports = function() {
 	this.use(express.methodOverride());
 	this.use(express.session({
 		secret: 'cog2porn4os4shom9cor5it2jeg6'
-
 	}));
 	this.use(passport.initialize());
 	this.use(passport.session());

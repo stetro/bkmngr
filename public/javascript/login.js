@@ -1,3 +1,5 @@
+var bkmngr = angular.module('bkmngr',['ngResource']);
+
 $(function() {
 	$("#signinswitch").click(function() {
 		$("#signupform").fadeOut("fast",function() {
