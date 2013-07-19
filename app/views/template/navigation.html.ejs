@@ -2,10 +2,14 @@
 	<ul>
 		<li>
 			<div class="btn-group pull-right">
-				<div class="btn" bs-popover="'/add_book_template.html'" data-unique="1" >
-					<i class="icon-plus"></i> add book
+				<div class="btn" bs-popover="'/add_book_template.html'" data-placement="bottom" data-unique="1" >
+					<i class="icon-book"></i> Add book
 				</div>
-				<div class="btn"><img src="http://gravatar.com/avatar/<%= user.gravatar%>?s=16" alt="Gravatar">&nbsp;
+				<div class="btn" bs-popover="'/add_tag_template.html'" data-placement="bottom" data-unique="1">
+					<i class="icon-tag"></i> Add tag
+				</div>
+				<div class="btn"><img src="http://gravatar.com/avatar/<%= user.gravatar%>?s=16" alt="Gravatar">
+					&nbsp;
 					<%= user.username %> 
 				</div>
 				<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>

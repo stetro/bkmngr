@@ -24,6 +24,9 @@ var BookSchema = new Schema({
 	},
 	thumbnail: {
 		type: Url
+	},
+	tags:{
+		type: Array
 	}
 });
 
