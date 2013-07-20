@@ -93,10 +93,20 @@ footer > .credits{
 .book > i.icon-star-empty:hover:before {
 	content: "\f005";
 }
-.book > div >i.icon-info-sign{
+.book > div > i.icon-info-sign{
 	position: absolute;
 	right: 10px;
 	top: 10px;
+	cursor: pointer;
+}
+.book > div > a{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.book > div > a > i.icon-download{
+	position: absolute;
+	right: 10px;
+	top: 30px;
 	cursor: pointer;
 }
 .book > i.icon-star, .book > i.icon-star-empty{

@@ -1,6 +1,7 @@
 var bkmngr = angular.module('bkmngr', ['ngResource', '$strap.directives']);
 
 bkmngr.controller('ListController', function($scope, $resource, $http) {
+	$("*[data-toggle=tooltip]").tooltip();
 	var Book = $resource('/books/:id');
 	var Tag = $resource('/tags/');
 	$scope.books = Book.query();
@@ -46,17 +47,32 @@ bkmngr.controller('ListController', function($scope, $resource, $http) {
 		});
 	};
 
+	$scope.fetchDataFromISBN = function() {
+		if ($scope.newBook.isbn == undefined || $scope.newBook.isbn.length < 6) {
+			$scope.newBookError = "invalid ISBN";
+			return;
+		} else {
+			$scope.newBook.isbn = $scope.newBook.isbn.replace(/-/g, "");
+			$http.jsonp('https://www.googleapis.com/books/v1/volumes?q=' + $scope.newBook.isbn + '&callback=JSON_CALLBACK').success(function(books) {
+				if (books.items == undefined) {
+					$scope.newBookError = "book not found";
+					return;
+				} else {
+					$scope.newBookError = "";
+					book = books.items[0].volumeInfo;
+					console.log(book);
+					$scope.newBook.author = book.authors.join(', ');
+					$scope.newBook.title = book.title;
+					if("imageLinks" in book){
+						$scope.newBook.thumbnail = book.imageLinks.thumbnail;
+					}
+				}
+			});
+		}
+	}
+
 	// $scope.typeaheadForBookAPI = function(query, callback) {
-	// 	$http.jsonp('https://www.googleapis.com/books/v1/volumes?q=' + query+'&callback=JSON_CALLBACK').success(function(books) {
-	// 		bookList = [];
-	// 		count = books.length;
-	// 		$.each(books.items ,function(key,val) {
-	// 			bookList.push(this.volumeInfo.title);
-	// 			if(!--count){
-	// 				callback(bookList);
-	// 			}
-	// 		});
-	// 	});
+
 	// }
 
 });

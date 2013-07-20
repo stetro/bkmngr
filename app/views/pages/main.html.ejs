@@ -1,12 +1,13 @@
 <% include ../template/header.html.ejs %>
 <% include ../template/main_wrap.html.ejs %>
 	<div>
-		<div ng-repeat="book in books | filter:search" class="span3 well book">
-			<div class="span3">
+		<div ng-repeat="book in books | filter:search" class="span2 well book">
+			<div class="span2">
 				<i class="icon-info-sign pull-right" ng-click="showBookInfo(book)"></i>
+				<a href="{{book.url}}" target="_blank"><i class="icon-download pull-right"></i></a>
 				{{book.title}}<br/>
-				{{book.author}}<br/>
-				<a href="{{book.url}}" target="_blank">Download</a>
+				<span class="muted">{{book.author}}</span><br/>
+				
 			</div>
 			<img src="{{book.thumbnail}}"  alt="Thumbnail of {{book.title}}">
 			<i class="icon-star-empty pull-right"></i>
