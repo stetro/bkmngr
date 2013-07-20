@@ -2,7 +2,8 @@
 <% include ../template/main_wrap.html.ejs %>
 	<div>
 		<div ng-repeat="book in books | filter:search" class="span3 well book">
-			<div>
+			<div class="span3">
+				<i class="icon-info-sign pull-right" ng-click="showBookInfo(book)"></i>
 				{{book.title}}<br/>
 				{{book.author}}<br/>
 				<a href="{{book.url}}" target="_blank">Download</a>

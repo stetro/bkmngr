@@ -68,6 +68,7 @@ footer > .credits{
 	position: relative;
 	overflow: hidden;
 	height: 200px;
+
 }
 .book > img{
 	position: absolute;
@@ -85,7 +86,6 @@ footer > .credits{
 	margin-right: -19px;
 	margin-left: -19px;
 	padding: 19px;
-	width: 100%;
 	color:#EEEEEE;
 	bottom: 0px;
 	height:80px;
@@ -93,11 +93,18 @@ footer > .credits{
 .book > i.icon-star-empty:hover:before {
 	content: "\f005";
 }
+.book > div >i.icon-info-sign{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	cursor: pointer;
+}
 .book > i.icon-star, .book > i.icon-star-empty{
 	position: absolute;
 	right: 10px;
 	top: 10px;
 	font-size: 18px;
+	cursor: pointer;
 }
 /*********** ADD BOOK */
 .btn#addTagButton{
