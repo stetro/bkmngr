@@ -8,7 +8,7 @@ lib-cov
 *.gz
 
 config/initializers/01_mongooose.js
-
+public/images/thumbnails/*
 pids
 logs
 results
