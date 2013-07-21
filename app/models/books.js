@@ -19,8 +19,7 @@ var BookSchema = new Schema({
 		required: true
 	},
 	url: {
-		type: String,
-		required: true
+		type: String
 	},
 	thumbnail: {
 		type: Url

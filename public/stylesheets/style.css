@@ -93,7 +93,9 @@ footer > .credits{
 .book > i.icon-star-empty:hover:before {
 	content: "\f005";
 }
-
+.book > i.icon-star{
+	color:#EEEE44;
+}
 .book > div > i.icon-info-sign{
 	position: absolute;
 	right: 10px;
@@ -122,4 +124,7 @@ footer > .credits{
 	margin-top: -10px;
 	margin-left: 10px;
 	position: relative;
+}
+.file-input-wrapper{
+	margin-bottom: 10px;
 }

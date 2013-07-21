@@ -9,6 +9,7 @@ lib-cov
 
 config/initializers/01_mongooose.js
 public/images/thumbnails/*
+public/images/books/*
 pids
 logs
 results

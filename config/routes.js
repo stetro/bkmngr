@@ -1,7 +1,6 @@
-
 module.exports = function routes() {
 	this.root('pages#main');
-	
+
 	this.get('/login', 'account#login');
 	this.get('/signout', 'account#logout');
 	this.post('/signin', 'account#signin');
@@ -9,5 +8,8 @@ module.exports = function routes() {
 	this.get('/account', 'account#show');
 
 	this.resources('books');
+	this.match('books/:id', 'books#upload', {
+		via: 'POST'
+	});
 	this.resources('tags');
 }
