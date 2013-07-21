@@ -1,4 +1,4 @@
-<form name="popoverForm" >
+<form name="popoverForm">
 	<p ng-bind-html-unsafe="popover.content"></p>
 	<p class="text-warning">{{newBookError}}</p>
 	<br />
@@ -13,10 +13,25 @@
 
 	<select ng-model="newBook.tags" multiple title="Tags ..." ng-options="tag.title for tag in tags" data-style="btn-primary" class="input-large" bs-select></select>
 	
+	<div class="tabbable tabs-below">
+		<div class="tab-content">
+			<div class="tab-pane active" id="upload">
+				<input type="file" title="Search file" id="bookuploader">
+			</div>
+			<div class="tab-pane" id="link">
+				<input ng-model="newBook.url" type="text" class="input-large" placeholder="Book URL" required>
+			</div>
+		</div>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#upload" data-toggle="tab">Upload</a></li>
+			<li><a href="#link" data-toggle="tab">Link</a></li>
+		</ul>
+	</div>
 	<input ng-model="newBook.thumbnail" type="text" class="input-large" placeholder="Thumbnail URL" required>
-	<input ng-model="newBook.url" type="text" class="input-large" placeholder="Book URL" required>
+	
 	<div class="form-actions">
 		<button type="button" class="btn" ng-click="hide()">Close</button>
 		<button class="btn btn-primary" ng-click="saveNewBook();" >Save book</button>
+		<img src="/images/ajax-loader.gif" alt="crunching" ng-show="newBookProcess">
 	</div>
 </form>

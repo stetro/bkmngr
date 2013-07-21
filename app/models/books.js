@@ -19,14 +19,18 @@ var BookSchema = new Schema({
 		required: true
 	},
 	url: {
-		type: Url,
+		type: String,
 		required: true
 	},
 	thumbnail: {
 		type: Url
 	},
-	tags:{
+	tags: {
 		type: Array
+	},
+	favorite: {
+		type: Boolean,
+		default: false
 	}
 });
 

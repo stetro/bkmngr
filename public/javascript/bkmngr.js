@@ -2,14 +2,19 @@ var bkmngr = angular.module('bkmngr', ['ngResource', '$strap.directives']);
 
 bkmngr.controller('ListController', function($scope, $resource, $http) {
 	$("*[data-toggle=tooltip]").tooltip();
-	var Book = $resource('/books/:id');
+	var Book = $resource('/books/:id', {
+		id: "@_id"
+	}, {
+		update: {
+			method: 'PUT'
+		}
+	});
 	var Tag = $resource('/tags/');
 	$scope.books = Book.query();
 	$scope.tags = Tag.query();
 	$scope.newBook = new Book();
 	$scope.newTag = new Tag();
-
-
+	$scope.newBookProcess = false;
 
 	$scope.typeaheadForBooks = function(query) {
 		return $.map($scope.books, function(book) {
@@ -17,13 +22,16 @@ bkmngr.controller('ListController', function($scope, $resource, $http) {
 		});
 	};
 
+	$scope.toggleFavorite = function(book) {
+		book.favorite = !book.favorite;
+		book.$update();
+	};
+
 	$scope.saveNewBook = function() {
-		if ($scope.newBook.title == undefined ||
-			$scope.newBook.author == undefined ||
-			$scope.newBook.url == undefined ||
-			$scope.newBook.thumbnail == undefined) {
+		if (!('title' in $scope.newBook) || !('author' in $scope.newBook) || !('url' in $scope.newBook) || !('thumbnail' in $scope.newBook)) {
 			return;
 		}
+		$scope.newBookProcess = true;
 		$scope.newBook.$save({}, function(book) {
 			$(".popover").popover('hide');
 			$scope.newBook = new Book();
@@ -63,16 +71,11 @@ bkmngr.controller('ListController', function($scope, $resource, $http) {
 					console.log(book);
 					$scope.newBook.author = book.authors.join(', ');
 					$scope.newBook.title = book.title;
-					if("imageLinks" in book){
-						$scope.newBook.thumbnail = book.imageLinks.thumbnail;
+					if ("imageLinks" in book) {
+						$scope.newBook.thumbnail = book.imageLinks.thumbnail.replace('zoom=1', 'zoom=2');
 					}
 				}
 			});
 		}
 	}
-
-	// $scope.typeaheadForBookAPI = function(query, callback) {
-
-	// }
-
 });

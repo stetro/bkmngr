@@ -93,6 +93,7 @@ footer > .credits{
 .book > i.icon-star-empty:hover:before {
 	content: "\f005";
 }
+
 .book > div > i.icon-info-sign{
 	position: absolute;
 	right: 10px;

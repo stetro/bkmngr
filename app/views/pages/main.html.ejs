@@ -9,8 +9,8 @@
 				<span class="muted">{{book.author}}</span><br/>
 				
 			</div>
-			<img src="{{book.thumbnail}}"  alt="Thumbnail of {{book.title}}">
-			<i class="icon-star-empty pull-right"></i>
+			<img src="/images/thumbnails/{{book._id}}.jpg"  alt="Thumbnail of {{book.title}}">
+			<i class="pull-right" ng-click="toggleFavorite(book)" ng-class="{'icon-star': book.favorite, 'icon-star-empty': !book.favorite}"></i>
 		</div>
 	</div>
 <% include ../template/footer.html.ejs %>
