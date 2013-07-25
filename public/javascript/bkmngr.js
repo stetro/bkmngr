@@ -28,6 +28,11 @@ bkmngr.controller('ListController', function($scope, $resource, $http) {
 		book.$update();
 	};
 
+	$scope.showBookInfo = function(book) {
+		$("#editmodal").modal('show');
+		$scope.selectedBook = book;
+	};
+
 	$scope.saveNewBook = function() {
 		if (!('title' in $scope.newBook) || !('author' in $scope.newBook) || !('thumbnail' in $scope.newBook)) {
 			return;
@@ -40,6 +45,7 @@ bkmngr.controller('ListController', function($scope, $resource, $http) {
 			if ($scope.newBook.url != undefined && $scope.newBook.url.length > 0) {
 				$('.popover').popover('hide');
 				$scope.newBookProcess = false;
+				return;
 			} else {
 				var files = document.getElementById('bookuploader').files;
 				if (files == undefined || files.length == 0) {

@@ -13,4 +13,45 @@
 			<i class="pull-right" ng-click="toggleFavorite(book)" ng-class="{'icon-star': book.favorite, 'icon-star-empty': !book.favorite}"></i>
 		</div>
 	</div>
+
+	<div class="modal fade hide" id="editmodal">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			<h3>{{selectedBook.title}}</h3>
+			<small>{{selectedBook.author}}</small>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<div class="span1">
+					<img src="/images/thumbnails/{{selectedBook._id}}.jpg"  alt="Thumbnail of {{selectedBook.title}}" class="span1">
+				</div>
+				<div class="span3">
+					<form class="form-horizontal">
+						<div class="control-group">
+							<label class="control-label" for="inputISBN">ISBN:</label>
+							<div class="controls">
+								<input type="text" id="inputISBN" placeholder="ISBN" ng-model="selectedBook.isbn">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="inputThumbnail URl">Thumbnail URl:</label>
+							<div class="controls">
+								<input type="text" id="inputThumbnail URl" placeholder="Thumbnail URl" ng-model="selectedBook.thumbnail">
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Tags:</label>
+							<div class="controls">
+								<select ng-model="selectedBook.tags" multiple title="Tags ..." ng-options="tag.title for tag in tags" data-style="btn-primary" class="input-large" bs-select></select>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Close</a>
+			<a href="#" class="btn btn-primary">Update changes</a>
+		</div>
+	</div>
 <% include ../template/footer.html.ejs %>

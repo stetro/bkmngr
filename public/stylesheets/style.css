@@ -10,13 +10,29 @@ body.signin{
 }
 #logo{
 	background-image: url(/images/logo_head.png);
-	height: 32px;
 	background-repeat: no-repeat;
+	height: 32px;
 	padding-left: 100px;
 	margin-bottom: 30px;
 	font-size: 3em;
 	padding-top: 68px;
 	color: #03376d;
+}
+@media (max-width: 979px) and (min-width: 768px){
+	#logo{
+		font-size: 2em;
+		background-size: 70px auto;
+		padding-top: 45px;
+		padding-left: 70px;
+	}
+}
+@media (max-width: 250px){
+	#logo{
+		font-size: 2em;
+		background-size: 70px auto;
+		padding-top: 45px;
+		padding-left: 70px;
+	}
 }
 /*********** NAVIGATION */
 nav{
@@ -76,7 +92,7 @@ footer > .credits{
 	margin-right: -19px;
 	margin-left: -19px;
 	width: 100%;
-	opacity: 0.7;
+	opacity: 0.9;
 	top: 0px;
 }
 .book > div{
