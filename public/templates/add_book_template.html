@@ -27,7 +27,11 @@
 			<li class="active"><a href="#link" data-toggle="tab">Link</a></li>
 		</ul>
 	</div>
-	<input ng-model="newBook.thumbnail" type="text" class="input-large" placeholder="Thumbnail URL" required>
+	<div class="input-append">
+		<input ng-model="newBook.thumbnail" type="text" class="input-small" placeholder="Thumbnail URL" required>
+		<img src="{{newBook.thumbnail}}" alt="Thumbnail from URL" title="Thumbnail from URL" class="btn" width="100">
+	</div>
+	
 	
 	<div class="form-actions">
 		<button type="button" class="btn" ng-click="hide()">Close</button>
