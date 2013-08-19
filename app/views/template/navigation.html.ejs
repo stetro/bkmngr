@@ -21,9 +21,15 @@
 		</li>
 		<li>
 			<form action="#" class="form-search">
-				<div class="input-append">
+				<div class="input-append dropdown">
 					<input type="text" class="span2 search-query" bs-typeahead="typeaheadForBooks" ng-model="search">
-					<button type="submit" class="btn"><i class="icon-search"></i> Search</button>
+					<ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+						<li><a href="#"><i class="icon-remove"></i> Clear</a></li>
+						<li role="presentation" class="divider"></li>
+						<li ng-repeat="tag in tags"><a href="#" ng-click="addToSearchBookTagFilter(tag)">{{tag.title}}</a></li>
+					</ul>
+					<a type="submit" class="btn" data-toggle="dropdown"><i class="icon-search"></i> Tags <b class="caret"></b></a>
+					
 				</div>
 			</form>
 		</li>

@@ -42,19 +42,19 @@ AccountSchema.static('authenticate', function(username, password, callback) {
 	this.findOne({
 		username: username
 	}, function(err, user) {
-		if (err)
+		if (err) {
 			return callback(err);
-
-		if (!user)
+		}
+		if (!user) {
 			return callback(null, false);
-
+		}
 		user.checkPassword(password, function(err, passwordCorrect) {
-			if (err)
+			if (err) {
 				return callback(err);
-
-			if (!passwordCorrect)
+			}
+			if (!passwordCorrect) {
 				return callback(null, false);
-
+			}
 			return callback(null, user);
 		});
 	});

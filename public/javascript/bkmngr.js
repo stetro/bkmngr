@@ -16,6 +16,15 @@ bkmngr.controller('ListController', function($scope, $resource, $http) {
 	$scope.newBook = new Book();
 	$scope.newTag = new Tag();
 	$scope.newBookProcess = false;
+	$scope.searchBookTagFilter = [];
+
+	$scope.addToSearchBookTagFilter = function(tag) {
+		$scope.searchBookTagFilter.push(tag);
+		console.log($scope.searchBookTagFilter);
+	}
+	$scope.clearSearchBookTagFilter = function() {
+		$scope.searchBookTagFilter = [];
+	}
 
 	$scope.typeaheadForBooks = function(query) {
 		return $.map($scope.books, function(book) {
